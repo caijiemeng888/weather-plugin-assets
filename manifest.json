@@ -1,0 +1,22 @@
+{
+  "plugin_name": "天气预报插件",
+  "description": "提供基于城市的实时天气信息。",
+  "version": "1.0.0",
+  "developer": "您的名字",
+  "api_specification": "https://yourdomain.com/openapi.yaml",
+  "logo_url": "https://github.com/caijiemeng888/weather-plugin-assets/blob/main/%E5%A4%A9%E6%B0%94%E5%9B%BE%E6%A0%87.jpg?raw=true",
+  "contact_email": "您的邮箱",
+  "endpoints": {
+    "get_weather": {
+      "path": "/weather",
+      "method": "GET",
+      "description": "获取指定城市的天气信息",
+      "parameters": {
+        "location": "城市名称"
+      }
+    }
+  },
+  "auth": {
+    "type": "none"
+  }
+}
