@@ -1,0 +1,81 @@
+openapi: 3.0.1
+info:
+  title: 和风天气 API
+  version: 1.0.0
+  description: 使用和风天气 API 获取实时天气数据。
+servers:
+  - url: https://devapi.qweather.com/v7
+paths:
+  /weather/now:
+    get:
+      summary: 获取实时天气
+      description: 返回指定城市的实时天气信息。
+      parameters:
+        - name: location
+          in: query
+          description: 查询的地区，可以是地区ID或经纬度
+          required: true
+          schema:
+            type: string
+            example: "101010100"
+        - name: key
+          in: query
+          description: API 密钥
+          required: true
+          schema:
+            type: string
+            example: "您的API密钥"
+        - name: lang
+          in: query
+          description: 返回的语言，默认是中文
+          required: false
+          schema:
+            type: string
+            example: "zh"
+        - name: unit
+          in: query
+          description: 数据单位，默认是公制单位
+          required: false
+          schema:
+            type: string
+            example: "m"
+      responses:
+        '200':
+          description: 成功返回天气数据
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 响应状态码
+                    example: "200"
+                  updateTime:
+                    type: string
+                    description: 数据更新时间
+                    example: "2024-11-27T10:00+08:00"
+                  now:
+                    type: object
+                    description: 实时天气数据
+                    properties:
+                      temp:
+                        type: string
+                        description: 当前温度
+                        example: "8"
+                      feelsLike:
+                        type: string
+                        description: 体感温度
+                        example: "6"
+                      windDir:
+                        type: string
+                        description: 风向
+                        example: "北风"
+                      humidity:
+                        type: string
+                        description: 湿度
+                        example: "20"
+                      text:
+                        type: string
+                        description: 天气状况
+                        example: "晴"
