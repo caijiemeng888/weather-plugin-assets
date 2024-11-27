@@ -1,18 +1,82 @@
-{
-  "schema_version": "v1",
-  "name_for_model": "weather_forecast",
-  "name_for_human": "天气预报插件",
-  "description_for_model": "提供城市实时天气信息的插件。",
-  "description_for_human": "通过输入城市名称获取实时天气信息。",
-  "api": {
-    "type": "openapi",
-    "url": "https://raw.githubusercontent.com/caijiemeng888/weather-plugin-assets/refs/heads/main/openapi.yaml",
-    "has_user_authentication": false
-  },
-  "logo_url": "https://raw.githubusercontent.com/caijiemeng888/weather-plugin-assets/main/%E5%A4%A9%E6%B0%94%E5%9B%BE%E6%A0%87.jpg",
-  "contact_email": "450277085@qq.com",
-  "legal_info_url": "https://example.com/legal", 
-  "auth": {
-    "type": "none"
-  }
-}
+openapi: 3.0.1
+info:
+  title: 天气预报 API
+  version: 1.0.0
+  description: 使用和风天气 API 查询城市信息和天气数据。
+servers:
+  - url: https://geoapi.qweather.com/v2  # 根地址
+paths:
+  /city/lookup:
+    get:
+      operationId: getCityInfo  # 唯一标识符
+      summary: 查询城市信息
+      description: 根据城市名称查询位置信息。
+      parameters:
+        - name: location
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "Beijing"
+            description: 城市名称或地区名称（如“Beijing”）
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "50df2f0ae9b240baaec000cbb37ae2fc"  # 替换为实际 API KEY
+        - name: adm
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "Hebei"
+            description: 省份名称（可选）
+        - name: range
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "world"
+            description: 搜索范围，默认中国（“cn”），可设置为全球（“world”）
+        - name: number
+          in: query
+          required: false
+          schema:
+            type: integer
+            example: 1
+            description: 返回结果数量，默认为 1
+      responses:
+        '200':
+          description: 成功返回城市信息
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: 状态码
+                    example: "200"
+                  location:
+                    type: array
+                    description: 城市信息列表
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: 城市名称
+                          example: "Beijing"
+                        id:
+                          type: string
+                          description: 城市 ID
+                          example: "101010100"
+                        lat:
+                          type: string
+                          description: 纬度
+                          example: "39.9042"
+                        lon:
+                          type: string
+                          description: 经度
+                          example: "116.4074"
