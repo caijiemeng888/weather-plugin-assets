@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "weather_forecast",
+  "name_for_human": "天气预报插件",
+  "description_for_model": "支持查询城市信息和实时天气的插件。",
+  "description_for_human": "通过城市名称查询位置信息和天气数据。",
+  "api": {
+    "type": "openapi",
+    "url": "https://raw.githubusercontent.com/caijiemeng888/weather-plugin-assets/refs/heads/main/openapi.yaml",
+    "has_user_authentication": false
+  },
+  "logo_url": "https://raw.githubusercontent.com/caijiemeng888/weather-plugin-assets/main/%E5%A4%A9%E6%B0%94%E5%9B%BE%E6%A0%87.jpg",
+  "contact_email": "450277085@qq.com",
+  "legal_info_url": "https://example.com/legal", 
+  "auth": {
+    "type": "none"
+  }
+}
