@@ -3,16 +3,16 @@
   "description": "提供基于城市的实时天气信息。",
   "version": "1.0.0",
   "developer": "您的名字",
-  "api_specification": "https://yourdomain.com/openapi.yaml",
+  "api_specification": "https://raw.githubusercontent.com/caijiemeng888/weather-plugin-assets/refs/heads/main/openapi.yaml",
   "logo_url": "https://github.com/caijiemeng888/weather-plugin-assets/blob/main/%E5%A4%A9%E6%B0%94%E5%9B%BE%E6%A0%87.jpg?raw=true",
-  "contact_email": "您的邮箱",
+  "contact_email": "450277085@qq.com",
   "endpoints": {
     "get_weather": {
-      "path": "/weather",
+      "path": "/weather/now",
       "method": "GET",
-      "description": "获取指定城市的天气信息",
+      "description": "获取指定城市的实时天气信息",
       "parameters": {
-        "location": "城市名称"
+        "location": "城市名称或LocationID"
       }
     }
   },
