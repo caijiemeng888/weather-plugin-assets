@@ -8,6 +8,7 @@ servers:
 paths:
   /weather/now:
     get:
+      operationId: getRealTimeWeather  # 添加唯一标识符
       summary: 获取实时天气
       description: 返回指定城市的实时天气信息。
       parameters:
@@ -77,5 +78,5 @@ paths:
                         example: "20"
                       text:
                         type: string
-                        description: 天气状况
+                        description: 天气描述
                         example: "晴"
