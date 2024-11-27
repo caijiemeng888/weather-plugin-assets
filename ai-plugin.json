@@ -1,21 +1,17 @@
 {
-  "plugin_name": "天气预报插件",
-  "description": "提供基于城市的实时天气信息。",
-  "version": "1.0.0",
-  "developer": "您的名字",
-  "api_specification": "https://raw.githubusercontent.com/caijiemeng888/weather-plugin-assets/refs/heads/main/openapi.yaml",
+  "schema_version": "v1",
+  "name_for_model": "weather_forecast",
+  "name_for_human": "天气预报插件",
+  "description_for_model": "提供城市实时天气信息的插件。",
+  "description_for_human": "通过输入城市名称获取实时天气信息。",
+  "api": {
+    "type": "openapi",
+    "url": "https://raw.githubusercontent.com/caijiemeng888/weather-plugin-assets/refs/heads/main/openapi.yaml",
+    "has_user_authentication": false
+  },
   "logo_url": "https://github.com/caijiemeng888/weather-plugin-assets/blob/main/%E5%A4%A9%E6%B0%94%E5%9B%BE%E6%A0%87.jpg?raw=true",
   "contact_email": "450277085@qq.com",
-  "endpoints": {
-    "get_weather": {
-      "path": "/weather/now",
-      "method": "GET",
-      "description": "获取指定城市的实时天气信息",
-      "parameters": {
-        "location": "城市名称或LocationID"
-      }
-    }
-  },
+  "legal_info_url": "https://example.com/legal", 
   "auth": {
     "type": "none"
   }
